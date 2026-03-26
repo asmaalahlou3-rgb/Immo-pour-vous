@@ -1,241 +1,175 @@
-Parfait ! Voici le code mis à jour. J'y ai intégré les bonnes pratiques d'accessibilité, des effets de survol fluides pour rendre la page plus moderne, et j'en ai profité pour transformer la section contact en un véritable formulaire fonctionnel visuellement.
-
-Voici votre nouvelle page de destination prête à l'emploi :
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agence Immobilière Maroc</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
+    <style>
+        :root {
+            --primary: #1a2a6c; /* Bleu Nuit Professionnel */
+            --accent: #b89230;  /* Or / Bronze */
+            --light: #f4f7f6;
+            --success: #25D366; /* Vert WhatsApp */
+        }
 
-<style>
-/* Styles de base */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
-  color: #333;
-}
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: #333; scroll-behavior: smooth; }
 
-/* En-tête (Header) */
-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa') center/cover;
-  height: 90vh;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-}
+        /* Header avec filtre élégant */
+        header {
+            background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(26, 42, 108, 0.7)), 
+                        url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1500') center/cover;
+            height: 80vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
 
-header h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
+        header h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        header p { font-size: 1.4rem; margin-bottom: 30px; opacity: 0.9; }
 
-header p {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
+        /* Bouton Principal */
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(184, 146, 48, 0.3);
+        }
 
-/* Boutons */
-.btn {
-  background: #e67e22;
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
+        .btn:hover { background: #967520; transform: translateY(-3px); }
 
-.btn:hover {
-  background: #d35400;
-  transform: scale(1.05);
-}
+        /* WhatsApp Flottant */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--success);
+            color: white;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-/* Sections */
-.section {
-  padding: 60px 20px;
-  text-align: center;
-}
+        /* Grille de Cartes */
+        .section { padding: 80px 20px; max-width: 1200px; margin: auto; text-align: center; }
+        .section h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--primary); }
 
-.section h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
-  color: #2c3e50;
-}
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-/* Grille de cartes */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card h3 { margin: 0; color: var(--primary); }
+        .price { color: var(--accent); font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
 
-.card {
-  background: white;
-  width: 320px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        /* Formulaire */
+        .contact-container { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; margin: auto; }
+        .form-group { text-align: left; margin-bottom: 20px; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
+        footer { background: var(--primary); color: white; padding: 40px 20px; text-align: center; margin-top: 50px; }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card h3 {
-  margin: 15px 10px 5px;
-  color: #27ae60;
-}
-
-.card p {
-  padding: 0 10px 15px;
-  color: #7f8c8d;
-  font-weight: bold;
-}
-
-/* Section Contact & Formulaire */
-.contact-info {
-  margin-bottom: 30px;
-  font-size: 18px;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  text-align: left;
-}
-
-.contact-form input, 
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: inherit;
-  box-sizing: border-box;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-/* Pied de page */
-footer {
-  background: #2c3e50;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Responsive Design pour mobiles */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 30px;
-  }
-  header p {
-    font-size: 16px;
-  }
-  .section {
-    padding: 40px 15px;
-  }
-}
-</style>
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .whatsapp-float { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 14px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <div>
-    <h1>Trouvez votre maison idéale au Maroc 🏡</h1>
-    <p>Achat - Vente - Location</p>
-    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contactez-nous</button>
-  </div>
-</header>
+    <a href="https://wa.me/212615602263" class="whatsapp-float" target="_blank">
+        <span>💬 Contact WhatsApp</span>
+    </a>
 
-<section class="section">
-  <h2>Nos biens populaires</h2>
+    <header>
+        <div>
+            <h1>Votre futur chez-vous au Maroc</h1>
+            <p>L'immobilier de confiance à Casablanca, Marrakech et Fès</p>
+            <a href="#contact" class="btn">Prendre rendez-vous</a>
+        </div>
+    </header>
 
-  <div class="cards">
+    <section class="section">
+        <h2>Nos Biens d'Exception</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Villa">
+                <div class="card-content">
+                    <h3>Villa Contemporaine</h3>
+                    <p class="price">2 500 000 MAD</p>
+                    <p>Casablanca - 4 Chambres - Piscine</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Appartement">
+                <div class="card-content">
+                    <h3>Appartement de Luxe</h3>
+                    <p class="price">1 200 000 MAD</p>
+                    <p>Marrakech - Vue sur l'Atlas</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf" alt="Riad">
+                <div class="card-content">
+                    <h3>Riad Traditionnel</h3>
+                    <p class="price">1 800 000 MAD</p>
+                    <p>Fès Medina - Patio arboré</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Belle villa moderne avec piscine" loading="lazy">
-      <h3>Villa à Casablanca</h3>
-      <p>À partir de 2 500 000 MAD</p>
-    </div>
+    <section id="contact" class="section" style="background: #e9ecef;">
+        <h2>Une question ? Contactez-nous</h2>
+        <div class="contact-container">
+            <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" name="name" placeholder="Ex: Ahmed Alami" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" placeholder="Quel bien vous intéresse ?" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Envoyer la demande</button>
+            </form>
+        </div>
+    </section>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="Intérieur d'un appartement lumineux" loading="lazy">
-      <h3>Appartement à Marrakech</h3>
-      <p>À partir de 900 000 MAD</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1599423300746-b62533397364" alt="Cour intérieure d'un Riad traditionnel" loading="lazy">
-      <h3>Riad à Fès</h3>
-      <p>À partir de 1 200 000 MAD</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" style="background:#ecf0f1;">
-  <h2>Pourquoi nous choisir ?</h2>
-  <div style="font-size: 18px; line-height: 1.8;">
-    <p>✔️ Meilleurs prix du marché</p>
-    <p>✔️ Accompagnement complet de A à Z</p>
-    <p>✔️ Biens 100% vérifiés et certifiés</p>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <h2>Contactez notre équipe</h2>
-  
-  <div class="contact-info">
-    <p>📧 mediaimmo@agence.ma | 📞 +212 615 602 263</p>
-  </div>
-
-  <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Message envoyé !');">
-    <input type="text" placeholder="Votre nom complet" required>
-    <input type="email" placeholder="Votre adresse email" required>
-    <textarea placeholder="Votre message ou question concernant un bien..." required></textarea>
-    <button type="submit" class="btn" style="width: 100%;">Envoyer le message</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2026 Agence Immobilière Maroc. Tous droits réservés.</p>
-</footer>
+    <footer>
+        <p><strong>Immo Pour Vous Maroc</strong></p>
+        <p>Email: mediaimmo@agence.ma | Tél: +212 615 602 263</p>
+        <p>© 2026 Tous droits réservés.</p>
+    </footer>
 
 </body>
 </html>
-```
-
-### Ce qui a changé :
-* **Accessibilité et SEO :** Ajout des balises `alt="..."` et `loading="lazy"` sur les images.
-* **Effets CSS :** Les cartes se soulèvent doucement au survol de la souris (`:hover`) et le bouton s'anime avec un petit effet de zoom. Un filtre assombri a été ajouté sur l'image d'en-tête pour rendre le texte blanc plus lisible.
-* **Navigation fluide :** Le bouton "Contactez-nous" de l'en-tête fait désormais défiler la page en douceur jusqu'au formulaire de contact.
-* **Nouvelle section Contact :** Remplacement des simples textes par un vrai formulaire propre avec des champs de saisie (nom, email, message).
-
-Souhaitez-vous que je vous explique comment relier ce formulaire à une adresse e-mail pour recevoir les messages de vos futurs clients ?
