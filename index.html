@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         /* --- VARIABLES & BASE --- */
         :root {
-            --primary: #042f2e; 
-            --accent: #d4af37;  
-            --light: #fdfbf7;   
-            --success: #25D366; 
+            --primary: #042f2e; /* Vert Émeraude Profond */
+            --accent: #d4af37;  /* Or Prestige */
+            --light: #fdfbf7;   /* Blanc Sable doux */
+            --success: #25D366; /* Vert WhatsApp */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background: var(--light); 
-            color: #333; 
+            color: #1a1a1a; 
             scroll-behavior: smooth; 
+            line-height: 1.6;
         }
 
         /* --- HEADER HERO --- */
         header {
-            background: linear-gradient(rgba(4, 47, 46, 0.7), rgba(4, 47, 46, 0.7)), 
+            background: linear-gradient(rgba(4, 47, 46, 0.75), rgba(4, 47, 46, 0.75)), 
                         url('https://images.unsplash.com/photo-1539667468225-bda0c11af318?auto=format&fit=crop&w=1500') center/cover;
             height: 85vh;
             color: white;
@@ -36,37 +40,65 @@
         }
 
         header h1 { 
-            font-size: clamp(3rem, 8vw, 5rem); 
+            font-family: 'Playfair Display', serif; /* Police Luxe */
+            font-size: clamp(3.5rem, 9vw, 5.5rem) !important; 
             font-weight: 900;
             text-transform: uppercase;
             margin-bottom: 15px; 
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5); 
+            text-shadow: 4px 4px 10px rgba(0,0,0,0.5); 
+            letter-spacing: -1px;
         }
 
-        header p { font-size: 1.5rem; margin-bottom: 40px; opacity: 0.9; }
+        header p { font-size: 1.6rem; margin-bottom: 45px; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto;}
 
         /* --- BOUTONS --- */
         .btn {
             background: var(--accent);
             color: white;
-            padding: 18px 40px;
+            padding: 20px 45px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
             transition: 0.3s;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(184, 146, 48, 0.3);
+            box-shadow: 0 5px 20px rgba(184, 146, 48, 0.4);
         }
-        .btn:hover { background: #967520; transform: translateY(-3px); }
+        .btn:hover { background: #967520; transform: translateY(-4px); }
 
-        /* --- SECTION NOS BIENS (3 SUR UNE LIGNE) --- */
-        .section { padding: 100px 20px; max-width: 1400px; margin: auto; text-align: center; }
-        .section h2 { font-size: 3rem; margin-bottom: 50px; color: var(--primary); font-weight: 800; }
+        /* --- SECTION NOS BIENS AVEC AGENT --- */
+        .section-biens { 
+            padding: 120px 20px; 
+            max-width: 1400px; 
+            margin: auto; 
+            background: #ffffff; /* Fond blanc pur pour faire ressortir les biens */
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            margin-top: -50px; /* Chevauchement élégant avec le header */
+            position: relative;
+            z-index: 10;
+        }
+        
+        .section-title { 
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 3.2rem; 
+            margin-bottom: 60px; 
+            color: var(--primary); 
+            font-weight: 800; 
+        }
 
+        .main-content-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        /* --- PHOTOS BIENS (GRANDE TAILLE) --- */
         .cards-container { 
+            flex: 2.8; /* Les photos prennent plus de place */
             display: flex; 
             flex-direction: row; 
             justify-content: center; 
@@ -78,114 +110,172 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
-            transition: 0.3s;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: 0.4s ease;
             text-align: center;
+            border: 1px solid #f0f0f0;
         }
 
-        .card:hover { transform: translateY(-10px); }
-        .card img { width: 100%; height: 280px; object-fit: cover; }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+        .card img { width: 100%; height: 380px !important; object-fit: cover; } /* PHOTOS AGRANDIES */
         
         .card-content { padding: 30px 20px; }
-        .card h3 { font-size: 1.6rem; color: var(--primary); margin-bottom: 10px; }
-        .price { color: var(--accent); font-weight: bold; font-size: 1.3rem; margin-bottom: 10px; }
+        .card h3 { font-size: 1.7rem; color: var(--primary); margin-bottom: 12px; font-weight: 700; }
+        .price { color: var(--accent); font-weight: bold; font-size: 1.4rem; margin-bottom: 12px; background: rgba(212, 175, 55, 0.1); padding: 5px 15px; display: inline-block; border-radius: 20px; }
+        .card p.details { font-size: 1.15rem; color: #555; }
+
+        /* --- AGENT IMMOBILIER A COTÉ --- */
+        .agent-container {
+            flex: 1.2;
+            background: var(--light);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            position: sticky; /* L'agent reste visible en scrollant */
+            top: 50px;
+        }
+
+        .agent-image {
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .agent-name { font-size: 1.6rem; color: var(--primary); font-weight: 700; margin-bottom: 5px; }
+        .agent-title { font-size: 1.1rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .agent-quote { font-style: italic; color: #555; font-size: 1.1rem; margin-bottom: 25px; }
 
         /* --- FORMULAIRE LARGE ET LUXE --- */
         .contact-wrapper {
             background: var(--primary);
             padding: 120px 20px;
-            margin-top: 50px;
+            margin-top: 80px;
+            border-radius: 40px 40px 0 0;
         }
 
-        .contact-wrapper h2 { color: white; margin-bottom: 60px; }
+        .contact-wrapper h2 { 
+            font-family: 'Playfair Display', serif;
+            color: white !important; 
+            margin-bottom: 60px; 
+            text-align: center;
+            font-size: 3.2rem;
+        }
 
         .contact-container { 
             background: white; 
-            padding: 70px; 
+            padding: 80px; 
             border-radius: 40px; 
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2); 
-            max-width: 900px; 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.3); 
+            max-width: 950px; 
             margin: auto; 
         }
 
-        .form-group { text-align: left; margin-bottom: 25px; }
-        .form-group label { display: block; margin-bottom: 10px; font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+        .form-group { text-align: left; margin-bottom: 30px; }
+        .form-group label { display: block; margin-bottom: 12px; font-weight: bold; color: var(--primary); font-size: 1.15rem; }
         
         input, textarea { 
             width: 100%; 
-            padding: 18px; 
+            padding: 20px; 
             border: 2px solid #eee; 
             border-radius: 15px; 
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             background: #fdfdfd;
+            transition: 0.3s;
         }
 
-        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+        input:focus, textarea:focus { border-color: var(--accent); outline: none; background: white; box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
 
         /* --- WHATSAPP & FOOTER --- */
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px;
             background-color: var(--success); color: white;
-            border-radius: 50px; padding: 15px 25px;
+            border-radius: 50px; padding: 18px 28px;
             font-weight: bold; text-decoration: none; z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
             display: flex; align-items: center; gap: 10px;
+            font-size: 1.1rem;
+            transition: 0.3s;
         }
+        .whatsapp-float:hover { transform: scale(1.05) rotate(3deg); }
 
-        footer { background: #021a1a; color: white; padding: 50px 20px; text-align: center; }
+        footer { background: #011111; color: white; padding: 60px 20px; text-align: center; }
 
         /* --- RESPONSIVE MOBILE --- */
-        @media (max-width: 992px) {
-            .cards-container { flex-direction: column; align-items: center; }
-            .card { width: 100%; max-width: 450px; }
+        @media (max-width: 1100px) {
+            .main-content-wrapper { flex-direction: column; align-items: center; }
+            .agent-container { width: 100%; max-width: 500px; position: static; margin-bottom: 40px; }
+            .cards-container { flex-direction: column; align-items: center; width: 100%; }
+            .card { width: 100%; max-width: 500px; }
+            .card img { height: 300px !important; }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.8rem !important; }
+            header p { font-size: 1.2rem; }
+            .section-title, .contact-wrapper h2 { font-size: 2.5rem !important; }
             .contact-container { padding: 40px 25px; }
-            header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <a href="https://wa.me/212615602263" class="whatsapp-float" target="_blank">
-        <span>💬 Contact WhatsApp</span>
+        <span>💬 Contact WhatsApp Urgent</span>
     </a>
 
     <header>
         <div>
-            <h1>Votre futur chez-vous au Maroc</h1>
-            <p>L'immobilier de confiance à Casablanca, Marrakech et Fès</p>
+            <h1>Prestige Immobilier Maroc</h1>
+            <p>L'excellence pour votre futur chez-vous à Casablanca, Marrakech et Fès</p>
             <a href="#contact" class="btn">Prendre rendez-vous</a>
         </div>
     </header>
 
-    <section class="section">
-        <h2>Nos Biens d'Exception</h2>
-        <div class="cards-container">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Villa">
-                <div class="card-content">
-                    <h3>Villa Contemporaine</h3>
-                    <p class="price">2 500 000 MAD</p>
-                    <p>Casablanca - 4 Chambres - Piscine</p>
-                </div>
+    <div class="section-biens">
+        <h2 class="section-title">Nos Biens d'Exception</h2>
+        
+        <div class="main-content-wrapper">
+            <div class="agent-container">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400" alt="Agent Immobilier Prestige Maroc" class="agent-image">
+                <p class="agent-name">Ahmed Alami</p>
+                <p class="agent-title">Directeur Associé</p>
+                <p class="agent-quote">"Je m'engage personnellement à vous trouver la perle rare au meilleur prix du marché."</p>
+                <a href="#contact" class="btn" style="padding: 15px 30px; font-size: 1rem;">Me contacter</a>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Appartement">
-                <div class="card-content">
-                    <h3>Appartement de Luxe</h3>
-                    <p class="price">1 200 000 MAD</p>
-                    <p>Marrakech - Vue sur l'Atlas</p>
+
+            <div class="cards-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Villa">
+                    <div class="card-content">
+                        <h3>Villa Contemporaine</h3>
+                        <p class="price">2 500 000 MAD</p>
+                        <p class="details">Casablanca - 4 Chambres - Piscine</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf" alt="Riad">
-                <div class="card-content">
-                    <h3>Riad Traditionnel</h3>
-                    <p class="price">1 800 000 MAD</p>
-                    <p>Fès Medina - Patio arboré</p>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Appartement">
+                    <div class="card-content">
+                        <h3>Appartement de Luxe</h3>
+                        <p class="price">1 200 000 MAD</p>
+                        <p class="details">Marrakech - Vue sur l'Atlas</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf" alt="Riad">
+                    <div class="card-content">
+                        <h3>Riad Traditionnel</h3>
+                        <p class="price">1 800 000 MAD</p>
+                        <p class="details">Fès Medina - Patio arboré</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <div id="contact" class="contact-wrapper">
         <section class="section" style="padding: 0;">
@@ -197,23 +287,23 @@
                         <input type="text" name="name" placeholder="Ex: Ahmed Alami" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
+                        <label>Email professionnel</label>
                         <input type="email" name="email" placeholder="votre@email.com" required>
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea name="message" rows="5" placeholder="Quel bien vous intéresse ?" required></textarea>
+                        <textarea name="message" rows="6" placeholder="Quel bien vous intéresse ? Vos critères ?" required></textarea>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%; border-radius: 15px;">Envoyer la demande</button>
+                    <button type="submit" class="btn" style="width: 100%; border-radius: 15px;">Envoyer la demande de prestige</button>
                 </form>
             </div>
         </section>
     </div>
 
     <footer>
-        <p><strong>Immo Pour Vous Maroc</strong></p>
-        <p style="margin: 10px 0; opacity: 0.8;">Email: mediaimmo@agence.ma | Tél: +212 615 602 263</p>
-        <p style="opacity: 0.5; font-size: 0.9rem;">© 2026 Tous droits réservés.</p>
+        <p><strong>Immo Pour Vous Maroc Prestige</strong></p>
+        <p style="margin: 10px 0; opacity: 0.8; font-size: 1.1rem;">Email: mediaimmo@agence.ma | Tél: +212 615 602 263</p>
+        <p style="opacity: 0.5; font-size: 0.95rem;">© 2026 Tous droits réservés. Excellence Immobilière au Maroc.</p>
     </footer>
 
 </body>
