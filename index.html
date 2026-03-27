@@ -40,7 +40,7 @@
         }
 
         header h1 { 
-            font-family: 'Playfair Display', serif; /* Police Luxe */
+            font-family: 'Playfair Display', serif;
             font-size: clamp(3.5rem, 9vw, 5.5rem) !important; 
             font-weight: 900;
             text-transform: uppercase;
@@ -68,15 +68,15 @@
         }
         .btn:hover { background: #967520; transform: translateY(-4px); }
 
-        /* --- SECTION NOS BIENS AVEC AGENT --- */
+        /* --- SECTION NOS BIENS --- */
         .section-biens { 
             padding: 120px 20px; 
             max-width: 1400px; 
             margin: auto; 
-            background: #ffffff; /* Fond blanc pur pour faire ressortir les biens */
+            background: #ffffff;
             border-radius: 30px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-            margin-top: -50px; /* Chevauchement élégant avec le header */
+            margin-top: -50px;
             position: relative;
             z-index: 10;
         }
@@ -96,101 +96,79 @@
             gap: 40px;
         }
 
-        /* --- PHOTOS BIENS (GRANDE TAILLE) --- */
+        /* --- CARTES DES VILLAS --- */
         .cards-container { 
-            flex: 2.8; /* Les photos prennent plus de place */
-            display: flex; 
-            flex-direction: row; 
-            justify-content: center; 
+            flex: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 25px; 
         }
 
         .card {
-            flex: 1;
             background: white;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             transition: 0.4s ease;
-            text-align: center;
             border: 1px solid #f0f0f0;
         }
 
-        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
-        .card img { width: 100%; height: 380px !important; object-fit: cover; } /* PHOTOS AGRANDIES */
+        .card:hover { transform: translateY(-12px); }
+        .card img { width: 100%; height: 350px; object-fit: cover; }
         
-        .card-content { padding: 30px 20px; }
-        .card h3 { font-size: 1.7rem; color: var(--primary); margin-bottom: 12px; font-weight: 700; }
-        .price { color: var(--accent); font-weight: bold; font-size: 1.4rem; margin-bottom: 12px; background: rgba(212, 175, 55, 0.1); padding: 5px 15px; display: inline-block; border-radius: 20px; }
-        .card p.details { font-size: 1.15rem; color: #555; }
+        .card-content { padding: 25px; text-align: center; }
+        .card h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 10px; }
+        .price { color: var(--accent); font-weight: bold; font-size: 1.3rem; margin-bottom: 10px; display: block; }
 
-        /* --- AGENT IMMOBILIER A COTÉ --- */
+        /* --- AGENT IMMOBILIER (AS MAA LAHLOU) --- */
         .agent-container {
-            flex: 1.2;
+            flex: 1;
             background: var(--light);
             border-radius: 20px;
             padding: 40px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 2px solid rgba(212, 175, 55, 0.2);
-            position: sticky; /* L'agent reste visible en scrollant */
+            position: sticky;
             top: 50px;
         }
 
         .agent-image {
-            width: 180px; height: 180px;
+            width: 250px; height: 250px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center 20%;
             margin: 0 auto 25px;
             border: 5px solid white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .agent-name { font-size: 1.6rem; color: var(--primary); font-weight: 700; margin-bottom: 5px; }
-        .agent-title { font-size: 1.1rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-        .agent-quote { font-style: italic; color: #555; font-size: 1.1rem; margin-bottom: 25px; }
+        .agent-name { font-size: 1.8rem; color: var(--primary); font-weight: 700; margin-bottom: 5px; }
+        .agent-title { font-size: 1.1rem; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .agent-quote { font-style: italic; color: #333; font-size: 1.2rem; line-height: 1.7; margin-bottom: 25px; }
 
-        /* --- FORMULAIRE LARGE ET LUXE --- */
+        /* --- CONTACT --- */
         .contact-wrapper {
             background: var(--primary);
-            padding: 120px 20px;
+            padding: 100px 20px;
             margin-top: 80px;
             border-radius: 40px 40px 0 0;
-        }
-
-        .contact-wrapper h2 { 
-            font-family: 'Playfair Display', serif;
-            color: white !important; 
-            margin-bottom: 60px; 
+            color: white;
             text-align: center;
-            font-size: 3.2rem;
         }
 
         .contact-container { 
             background: white; 
-            padding: 80px; 
-            border-radius: 40px; 
-            box-shadow: 0 40px 80px rgba(0,0,0,0.3); 
-            max-width: 950px; 
-            margin: auto; 
+            padding: 50px; 
+            border-radius: 30px; 
+            max-width: 800px; 
+            margin: 40px auto; 
+            color: var(--primary);
         }
 
-        .form-group { text-align: left; margin-bottom: 30px; }
-        .form-group label { display: block; margin-bottom: 12px; font-weight: bold; color: var(--primary); font-size: 1.15rem; }
-        
-        input, textarea { 
-            width: 100%; 
-            padding: 20px; 
-            border: 2px solid #eee; 
-            border-radius: 15px; 
-            font-size: 1.15rem;
-            background: #fdfdfd;
-            transition: 0.3s;
-        }
+        .form-group { text-align: left; margin-bottom: 20px; }
+        input, textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; margin-top: 5px; }
 
-        input:focus, textarea:focus { border-color: var(--accent); outline: none; background: white; box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
-
-        /* --- WHATSAPP & FOOTER --- */
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px;
             background-color: var(--success); color: white;
@@ -198,27 +176,14 @@
             font-weight: bold; text-decoration: none; z-index: 1000;
             box-shadow: 0 6px 18px rgba(0,0,0,0.3);
             display: flex; align-items: center; gap: 10px;
-            font-size: 1.1rem;
-            transition: 0.3s;
         }
-        .whatsapp-float:hover { transform: scale(1.05) rotate(3deg); }
 
-        footer { background: #011111; color: white; padding: 60px 20px; text-align: center; }
+        footer { background: #011111; color: white; padding: 40px; text-align: center; }
 
-        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 1100px) {
-            .main-content-wrapper { flex-direction: column; align-items: center; }
-            .agent-container { width: 100%; max-width: 500px; position: static; margin-bottom: 40px; }
-            .cards-container { flex-direction: column; align-items: center; width: 100%; }
-            .card { width: 100%; max-width: 500px; }
-            .card img { height: 300px !important; }
-        }
-        
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem !important; }
-            header p { font-size: 1.2rem; }
-            .section-title, .contact-wrapper h2 { font-size: 2.5rem !important; }
-            .contact-container { padding: 40px 25px; }
+            .main-content-wrapper { flex-direction: column-reverse; align-items: center; }
+            .cards-container { grid-template-columns: 1fr; width: 100%; }
+            .agent-container { width: 100%; margin-bottom: 50px; position: static; }
         }
     </style>
 </head>
@@ -240,65 +205,63 @@
         <h2 class="section-title">Nos Biens d'Exception</h2>
         
         <div class="main-content-wrapper">
-           <div class="agent-container">
-    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400" alt="Agent Immobilier Prestige Maroc" class="agent-image" 
-         style="width: 250px; height: 250px; object-fit: cover; border: 4px solid var(--accent); border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-    
-    <p class="agent-name" style="font-size: 1.8rem; margin-top: 15px; font-weight: 700; color: var(--primary);">Asmaa Lahlou</p>
-    <p class="agent-title" style="letter-spacing: 2px; color: var(--accent); font-weight: 800; text-transform: uppercase;">Directrice Fondatrice</p>
-    
-    <div style="margin: 25px 0; height: 2px; background: linear-gradient(to right, transparent, var(--accent), transparent); width: 80%; margin-left: auto; margin-right: auto;"></div>
-    
-    <p class="agent-quote" style="font-size: 1.25rem; line-height: 1.8; color: #333; font-weight: 500; font-style: italic; padding: 0 15px;">
-        "Parce que votre projet immobilier est avant tout une histoire de vie, je mets mon expertise et ma passion à votre service pour vous dénicher l'exceptionnel au cœur du Maroc."
-    </p>
-    
-    <a href="https://wa.me/212615602263" class="btn" style="padding: 15px 35px; font-size: 1rem; text-transform: uppercase; width: 100%; margin-top: 25px; border-radius: 12px;">Contact direct</a>
-</div>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800" alt="Villa Marrakech">
+                    <div class="card-content">
+                        <span class="price">12.500.000 MAD</span>
+                        <h3>Villa Palmeraie</h3>
+                        <p class="details">Marrakech • 6 Chambres • Piscine Olympique</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800" alt="Penthouse Casablanca">
+                    <div class="card-content">
+                        <span class="price">8.900.000 MAD</span>
+                        <h3>Sky Penthouse</h3>
+                        <p class="details">Casablanca Finance City • Vue Océan</p>
+                    </div>
+                </div>
+            </div>
 
-           <div class="agent-container">
-    <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?v=2auto=compress&cs=tinysrgb&w=800" alt="Asmaa Lahlou - Directrice Immo Pour Vous" class="agent-image" 
-         style="width: 250px; height: 250px; object-fit: cover; object-position: center 20%; border: 4px solid var(--accent); border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-    
-    <p class="agent-name" style="font-size: 1.8rem; margin-top: 15px; font-weight: 700; color: var(--primary);">Asmaa Lahlou</p>
-    <p class="agent-title" style="letter-spacing: 2px; color: var(--accent); font-weight: 800; text-transform: uppercase;">Directrice Fondatrice</p>
-    
-    <div style="margin: 30px 0; height: 2px; background: linear-gradient(to right, transparent, var(--accent), transparent); width: 85%; margin-left: auto; margin-right: auto;"></div>
-    
-    <p class="agent-quote" style="font-size: 1.3rem; line-height: 1.8; color: #333; font-weight: 500; font-style: italic; padding: 0 15px;">
-        "Chaque client est unique, chaque projet est une histoire d'excellence. Je m'engage personnellement à vous offrir un accompagnement sur mesure pour réaliser vos plus grandes ambitions immobilières au Maroc."
-    </p>
-    
-    <a href="https://wa.me/212615602263" class="btn" style="padding: 15px 35px; font-size: 1rem; text-transform: uppercase; width: 100%; margin-top: 25px; border-radius: 12px;">Contact direct</a>
-</div>
+            <div class="agent-container">
+                <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Asmaa Lahlou" class="agent-image">
+                <p class="agent-name">Asmaa Lahlou</p>
+                <p class="agent-title">Directrice Fondatrice</p>
+                <div style="margin: 20px 0; height: 2px; background: var(--accent); width: 60px; margin-left: auto; margin-right: auto;"></div>
+                <p class="agent-quote">
+                    "Chaque client est unique, chaque projet est une histoire d'excellence. Je m'engage personnellement à vous offrir un accompagnement sur mesure pour réaliser vos plus grandes ambitions immobilières au Maroc."
+                </p>
+                <a href="https://wa.me/212615602263" class="btn" style="width: 100%; padding: 15px;">Contact direct</a>
+            </div>
+        </div>
+    </div>
 
     <div id="contact" class="contact-wrapper">
-        <section class="section" style="padding: 0;">
-            <h2>Une question ? Contactez-nous</h2>
-            <div class="contact-container">
-                <form action="https://formspree.io/f/VOTRE_ID" method="POST">
-                    <div class="form-group">
-                        <label>Nom complet</label>
-                        <input type="text" name="name" placeholder="Ex: Ahmed Alami" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email professionnel</label>
-                        <input type="email" name="email" placeholder="votre@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea name="message" rows="6" placeholder="Quel bien vous intéresse ? Vos critères ?" required></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%; border-radius: 15px;">Envoyer la demande de prestige</button>
-                </form>
-            </div>
-        </section>
+        <h2>Une question ? Contactez-nous</h2>
+        <div class="contact-container">
+            <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" name="name" placeholder="Ex: Ahmed Alami" required>
+                </div>
+                <div class="form-group">
+                    <label>Email professionnel</label>
+                    <input type="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" placeholder="Quel bien vous intéresse ?" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border-radius: 10px;">Envoyer la demande</button>
+            </form>
+        </div>
     </div>
 
     <footer>
         <p><strong>Immo Pour Vous Maroc Prestige</strong></p>
-        <p style="margin: 10px 0; opacity: 0.8; font-size: 1.1rem;">Email: mediaimmo@agence.ma | Tél: +212 615 602 263</p>
-        <p style="opacity: 0.5; font-size: 0.95rem;">© 2026 Tous droits réservés. Excellence Immobilière au Maroc.</p>
+        <p style="margin: 10px 0; opacity: 0.8;">Email: mediaimmo@agence.ma | Tél: +212 615 602 263</p>
+        <p style="opacity: 0.5;">© 2026 Tous droits réservés.</p>
     </footer>
 
 </body>
