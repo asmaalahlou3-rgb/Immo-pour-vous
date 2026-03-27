@@ -5,37 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
     <style>
-        /* --- Correction Équilibre Texte/Photo --- */
-h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem) !important; /* Titre géant et adaptable */
-    font-weight: 800 !important;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3); /* Pour qu'il ressorte sur la photo */
-}
+  :root {
+    --vert-emeraude: #064e3b;
+    --blanc-pur: #ffffff;
+  }
 
-h2 {
-    font-size: 2.5rem !important;
-    margin-top: 50px !important;
-}
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+  }
 
-p {
-    font-size: 1.25rem !important; /* Texte plus grand et lisible */
-    line-height: 1.8 !important;   /* Plus d'espace entre les lignes */
+  /* SECTION HERO (Le haut de la page) */
+  header {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+    color: white;
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 4rem !important; /* TITRE GÉANT */
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  header p {
+    font-size: 1.5rem !important; /* SOUS-TITRE LISIBLE */
     max-width: 800px;
-    margin: 0 auto 20px;
-}
+  }
 
-.property-card h3 {
-    font-size: 1.8rem !important; /* Titres des villas plus présents */
-}
+  /* SECTION BIENS (Les cartes) */
+  .property-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 80px 20px;
+  }
 
-section {
-    padding: 80px 20px !important; /* Donne de l'air entre les sections */
-}
+  .property-card {
+    width: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    background: white;
+  }
 
-img {
-    border-radius: 15px; /* Adoucit les bords des grandes photos */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+  .property-card img {
+    width: 100%;
+    height: 250px; /* ON LIMITE LA PHOTO ICI */
+    object-fit: cover;
+  }
+
+  .property-card h3 {
+    font-size: 1.8rem; /* TITRE VILLA BIEN GROS */
+    padding: 15px 20px 5px;
+    margin: 0;
+    color: var(--vert-emeraude);
+  }
+
+  .property-card p {
+    font-size: 1.1rem;
+    padding: 0 20px 20px;
+    color: #555;
+  }
+
+  /* BOUTON */
+  .btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--vert-emeraude);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    font-size: 1.2rem;
+  }
+</style>
        <style>
         :root {
             --primary: #042f2e; /* Vert Émeraude Profond (Très élégant) */
