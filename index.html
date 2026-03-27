@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
+    <title>Immo Pour Vous | Luxe au Maroc</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -13,169 +12,151 @@
             --primary: #042f2e; /* Vert Émeraude */
             --accent: #d4af37;  /* Or Prestige */
             --light: #fdfbf7;   /* Sable */
+            --white: #ffffff;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--light); color: #1a1a1a; scroll-behavior: smooth; line-height: 1.6; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--light); color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
 
-        /* --- 1. BARRE DE NAVIGATION --- */
+        /* --- NAVIGATION --- */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
+            top: 0; width: 100%;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(4, 47, 46, 0.95); /* Fond semi-transparent */
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            background: var(--primary); 
+            border-bottom: 2px solid var(--accent);
         }
 
-        .logo { font-family: 'Playfair Display', serif; color: white; font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; }
-        .logo span { color: var(--accent); }
+        /* MÉTHODE FACILE : LE LOGO EN CODE (SANS IMAGE) */
+        .logo-text {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        .logo-text .main-brand {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .logo-text .sub-brand {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 5px;
+        }
 
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: white; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; color: white; 
+            font-weight: 600; text-transform: uppercase; 
+            font-size: 0.8rem; letter-spacing: 1.5px; 
+            transition: 0.3s; 
+        }
         .nav-links a:hover { color: var(--accent); }
 
-        /* --- 2. HERO SECTION --- */
+        /* --- HERO --- */
         header {
+            height: 60vh;
             background: linear-gradient(rgba(4, 47, 46, 0.7), rgba(4, 47, 46, 0.7)), 
-                        url('https://images.unsplash.com/photo-1539667468225-bda0c11af318?auto=format&fit=crop&w=1500') center/cover;
-            height: 80vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            padding-top: 80px;
+                        url('https://images.unsplash.com/photo-1539667468225-bda0c11af318?auto=format&fit=crop&w=1600') center/cover;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
         }
+        header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 4rem); text-transform: uppercase; }
 
-        header h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5rem); text-transform: uppercase; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        /* --- CONTENU --- */
+        .wrapper { max-width: 1200px; margin: -60px auto 60px; display: flex; gap: 30px; padding: 0 20px; }
+        .main-col { flex: 2; display: flex; flex-direction: column; gap: 30px; }
+        
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 400px; object-fit: cover; }
+        .card-body { padding: 30px; }
+        .price { color: var(--accent); font-weight: 800; font-size: 1.5rem; display: block; }
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0; color: var(--primary); }
 
-        /* --- 3. LAYOUT PRINCIPAL --- */
-        .main-wrapper { 
-            max-width: 1500px; 
-            margin: -80px auto 0; 
-            padding: 0 20px 80px;
-            display: flex;
-            gap: 50px;
-            position: relative;
-            z-index: 10;
-        }
+        /* --- FORMULAIRE --- */
+        .form-box { background: var(--primary); padding: 40px; border-radius: 15px; color: white; text-align: center; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: none; }
+        .btn { background: var(--accent); color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
 
-        .content-column { flex: 2.2; display: flex; flex-direction: column; gap: 50px; }
-
-        .card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid #eee; }
-        .card img { width: 100%; height: 550px; object-fit: cover; }
-        .card-body { padding: 40px; }
-        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
-        .price { color: var(--accent); font-weight: 900; font-size: 1.8rem; }
-
-        /* --- 4. FORMULAIRE DE PRESTIGE --- */
-        .contact-box { background: var(--primary); padding: 60px; border-radius: 30px; color: white; text-align: center; border: 1px solid var(--accent); }
-        .contact-box h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 30px; }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        input, textarea { width: 100%; padding: 18px; border-radius: 15px; border: none; font-size: 1rem; margin-top: 8px; }
-        .btn-submit { background: var(--accent); color: white; padding: 20px; width: 100%; border: none; border-radius: 15px; font-weight: 800; font-size: 1.2rem; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
-        .btn-submit:hover { background: #b8962d; transform: translateY(-3px); }
-
-        /* --- 5. COLONNE DROITE (ASMAA LAHLOU STICKY) --- */
-        .sidebar-column { flex: 1; }
-        .agent-sticky { position: sticky; top: 120px; background: white; padding: 50px 30px; border-radius: 30px; text-align: center; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        .agent-image { width: 260px; height: 260px; border-radius: 50%; object-fit: cover; border: 8px solid var(--light); box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 25px; }
-        .agent-name { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); font-weight: 900; }
-        .agent-title { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: block; }
-        .agent-quote { font-style: italic; color: #444; font-size: 1.2rem; line-height: 1.8; }
+        /* --- SIDEBAR --- */
+        .sidebar { flex: 1; }
+        .agent { position: sticky; top: 100px; background: white; padding: 30px; border-radius: 15px; text-align: center; border: 1px solid #eee; }
+        .agent img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid var(--light); }
 
         /* --- WHATSAPP --- */
-        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 20px 35px; border-radius: 50px; font-weight: bold; text-decoration: none; z-index: 100; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; z-index: 100; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        @media (max-width: 1100px) {
-            nav { padding: 15px 20px; }
-            .nav-links { display: none; } /* On cache les liens sur mobile pour rester propre */
-            .main-wrapper { flex-direction: column-reverse; margin-top: -40px; }
-            .agent-sticky { position: static; width: 100%; }
-            .card img { height: 400px; }
+        @media (max-width: 900px) {
+            nav { padding: 15px; justify-content: center; }
+            .nav-links { display: none; }
+            .wrapper { flex-direction: column-reverse; margin-top: -30px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">IMMO <span>POUR VOUS</span></div>
+        <a href="#" class="logo-text">
+            <span class="main-brand">IMMO POUR VOUS</span>
+            <span class="sub-brand">Maroc Prestige</span>
+        </a>
         <ul class="nav-links">
-            <li><a href="#">Accueil</a></li>
             <li><a href="#biens">Nos Biens</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="https://wa.me/212615602263" style="color: var(--accent);">+212 615 602 263</a></li>
         </ul>
     </nav>
 
-    <a href="https://wa.me/212615602263" class="whatsapp-btn" target="_blank">💬 WhatsApp Direct</a>
+    <a href="https://wa.me/212615602263" class="wa" target="_blank">💬 WhatsApp</a>
 
     <header>
-        <h1>Prestige Immobilier Maroc</h1>
+        <h1>L'Immobilier d'Exception</h1>
     </header>
 
-    <div class="main-wrapper">
-        
-        <div class="content-column">
-            
+    <div class="wrapper">
+        <div class="main-col">
             <div id="biens" class="card">
-                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200" alt="Villa Marrakech">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200" alt="Villa">
                 <div class="card-body">
                     <span class="price">12.500.000 MAD</span>
-                    <h3>Majestic Villa Palmeraie</h3>
-                    <p>Marrakech • 6 Chambres • Jardin de 2 hectares • Service Conciergerie</p>
+                    <h3>Villa Royale - Marrakech</h3>
+                    <p>6 Suites de luxe • Jardin 2ha • Piscine chauffée</p>
                 </div>
             </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200" alt="Penthouse Casablanca">
-                <div class="card-body">
-                    <span class="price">8.900.000 MAD</span>
-                    <h3>Ocean View Sky Penthouse</h3>
-                    <p>Casablanca • 4 Suites de Luxe • Terrasse Panoramique • Spa Privé</p>
-                </div>
-            </div>
-
-            <div class="contact-box" id="contact">
-                <h2>Votre projet d'exception</h2>
-                <form action="https://formspree.io/f/VOTRE_ID" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Votre Nom Complet" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Votre Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="5" placeholder="Parlez-moi de votre futur chez-vous au Maroc..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Débuter l'expérience</button>
+            <div class="form-box" id="contact">
+                <h2>Contactez-nous</h2>
+                <form>
+                    <input type="text" placeholder="Votre Nom" required>
+                    <input type="email" placeholder="Votre Email" required>
+                    <textarea rows="4" placeholder="Votre message..."></textarea>
+                    <button type="submit" class="btn">Envoyer</button>
                 </form>
             </div>
         </div>
 
-        <div class="sidebar-column">
-            <div class="agent-sticky">
-                <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Asmaa Lahlou" class="agent-image">
-                <p class="agent-name">Asmaa Lahlou</p>
-                <span class="agent-title">Directrice Fondatrice</span>
-                <p class="agent-quote">
-                    "Parce que votre projet immobilier au Maroc est avant tout une histoire de vie, je mets mon expertise et ma passion à votre service pour vous dénicher l'exceptionnel."
-                </p>
+        <div class="sidebar">
+            <div class="agent">
+                <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Asmaa">
+                <h3>Asmaa Lahlou</h3>
+                <p style="color: var(--accent); font-weight: 700;">DIRECTRICE</p>
+                <p style="font-style: italic; margin-top: 10px;">"Votre confiance est notre plus belle adresse."</p>
             </div>
         </div>
-
     </div>
 
     <footer style="background: #011111; color: white; padding: 40px; text-align: center;">
-        <p><strong>Immo Pour Vous Maroc Prestige</strong></p>
-        <p>© 2026 Tous droits réservés.</p>
+        <p>© 2026 Immo Pour Vous Maroc Prestige</p>
     </footer>
 
 </body>
