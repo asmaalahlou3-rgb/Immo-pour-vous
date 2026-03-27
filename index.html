@@ -3,343 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
-    
+    <title>Immo Pour Vous | Grille de Prestige</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #042f2e; /* Vert Émeraude Profond */
-            --accent: #d4af37;  /* Or Prestige */
-            --light: #fdfbf7;   /* Sable / Crème */
-            --dark: #011111;
-            --white: #ffffff;
+            --primary: #042f2e; 
+            --accent: #d4af37;  
+            --light: #fdfbf7;   
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            background: var(--light); 
-            color: #1a1a1a; 
-            scroll-behavior: smooth; 
-            line-height: 1.6; 
-        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--light); scroll-behavior: smooth; }
 
-        /* --- 1. BARRE DE NAVIGATION --- */
+        /* NAV */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 12px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(4, 47, 46, 0.98); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            position: fixed; top: 0; width: 100%; padding: 15px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: var(--primary); border-bottom: 2px solid var(--accent);
         }
+        .logo { font-family: 'Playfair Display', serif; color: white; font-size: 1.4rem; font-weight: 900; text-decoration: none; }
+        .logo span { color: var(--accent); }
 
-        .logo-container img {
-            height: 55px; /* Taille optimale du logo */
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-container:hover img {
-            transform: scale(1.05);
-        }
-
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { 
-            text-decoration: none; 
-            color: white; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-            letter-spacing: 1.5px; 
-            transition: 0.3s; 
-        }
-        .nav-links a:hover { color: var(--accent); }
-
-        .nav-whatsapp {
-            border: 1px solid var(--accent);
-            padding: 8px 15px;
-            border-radius: 5px;
-            color: var(--accent) !important;
-        }
-
-        /* --- 2. HERO SECTION --- */
+        /* HERO */
         header {
             background: linear-gradient(rgba(4, 47, 46, 0.7), rgba(4, 47, 46, 0.7)), 
                         url('https://images.unsplash.com/photo-1539667468225-bda0c11af318?auto=format&fit=crop&w=1500') center/cover;
-            height: 65vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
+            height: 50vh; display: flex; align-items: center; justify-content: center; color: white;
         }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; text-transform: uppercase; letter-spacing: 3px; }
 
-        header h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 6vw, 4.5rem); 
-            text-transform: uppercase; 
-            letter-spacing: 4px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-        }
-
-        /* --- 3. SECTIONS PRINCIPALES (SÉPARÉES) --- */
-        .main-wrapper { 
-            max-width: 1400px; 
-            margin: -80px auto 0; 
-            padding: 0 20px 80px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Section 1 : Introduction avec Asmaa Lahlou */
-        .intro-section {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            background: var(--white);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            margin-bottom: 50px;
-        }
-
-        .agent-column {
-            flex: 0 0 250px;
-            text-align: center;
-        }
-
-        .agent-image { 
-            width: 220px; height: 220px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 6px solid var(--light); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-            margin-bottom: 20px; 
-        }
-
-        .agent-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); font-weight: 900; }
-        .agent-title { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; display: block; }
-
-        .quote-column {
-            flex: 1;
-        }
-
-        .agent-quote { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.6rem; 
-            font-style: italic; 
-            color: #333; 
-            line-height: 1.5; 
-            border-left: 5px solid var(--accent);
-            padding-left: 30px;
-        }
-
-        /* Section 2 : La Grille de Biens (3 par ligne) */
+        /* --- LA GRILLE DE 3 PHOTOS PAR LIGNE --- */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
         .properties-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 COLONNES ÉGALES */
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(3, 1fr); /* FORCE 3 COLONNES */
+            gap: 25px; /* Espace entre les photos */
         }
 
         .card { 
-            background: white; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.03);
+            background: white; border-radius: 10px; overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;
+            border: 1px solid #eee;
         }
         .card:hover { transform: translateY(-10px); }
-        .card img { width: 100%; height: 350px; object-fit: cover; }
-        .card-body { padding: 25px; text-align: center; }
-        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 5px; }
-        .price { color: var(--accent); font-weight: 800; font-size: 1.4rem; display: block; margin-bottom: 10px; }
-        .details { color: #666; font-size: 1rem; border-top: 1px solid #f0f0f0; pt: 10px; margin-top: 10px; padding-top: 10px; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-body { padding: 20px; text-align: center; }
+        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--primary); }
+        .price { color: var(--accent); font-weight: 800; display: block; margin-bottom: 5px; }
 
-        /* Section 3 : Formulaire (Simple et Centré) */
+        /* FORMULAIRE */
         .contact-box { 
-            background: var(--primary); 
-            padding: 60px; 
-            border-radius: 20px; 
-            color: white; 
-            text-align: center; 
-            max-width: 800px;
-            margin: 0 auto;
-            border-bottom: 5px solid var(--accent); 
+            background: var(--primary); padding: 40px; border-radius: 15px; 
+            color: white; text-align: center; margin-top: 50px;
         }
-        .contact-box h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 25px; }
-        .form-group { margin-bottom: 15px; text-align: left; }
-        input, textarea { width: 100%; padding: 15px; border-radius: 10px; border: none; font-size: 1rem; margin-top: 5px; background: #f9f9f9; }
-        .btn-submit { 
-            background: var(--accent); 
-            color: white; 
-            padding: 18px; 
-            width: 100%; 
-            border: none; 
-            border-radius: 10px; 
-            font-weight: 800; 
-            font-size: 1.1rem; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            transition: 0.3s; 
-            margin-top: 10px;
-        }
-        .btn-submit:hover { background: #b8962d; letter-spacing: 1px; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 5px; border: none; }
+        .btn { background: var(--accent); color: white; width: 100%; padding: 15px; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
 
-        /* --- WHATSAPP FLOATING --- */
-        .whatsapp-btn { 
-            position: fixed; bottom: 30px; right: 30px; 
-            background: #25D366; color: white; 
-            padding: 15px 25px; border-radius: 50px; 
-            font-weight: bold; text-decoration: none; 
-            z-index: 100; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            display: flex; align-items: center; gap: 10px;
-            transition: 0.3s;
-        }
-        .whatsapp-btn:hover { transform: scale(1.1); }
-
-        /* --- RESPONSIVE MOBILE --- */
-        @media (max-width: 1200px) {
-            .properties-grid { grid-template-columns: repeat(2, 1fr); } /* 2 par ligne sur tablettes */
-        }
+        /* MOBILE */
         @media (max-width: 900px) {
-            nav { padding: 15px 20px; justify-content: center; }
-            .nav-links { display: none; }
-            .intro-section { flex-direction: column; text-align: center; }
-            .agent-quote { border-left: none; border-top: 5px solid var(--accent); padding: 20px 0 0 0; margin-top: 20px; font-size: 1.3rem; }
-            .properties-grid { grid-template-columns: 1fr; } /* 1 par ligne sur mobile */
-            .main-wrapper { margin-top: -50px; }
-            .contact-box { padding: 40px 20px; }
+            .properties-grid { grid-template-columns: 1fr; } /* 1 seule colonne sur téléphone */
+            nav { padding: 15px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo-container">
-            <img src="logo.png" alt="Immo Pour Vous Logo">
-        </a>
-        <ul class="nav-links">
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#biens">Nos Biens</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="https://wa.me/212615602263" class="nav-whatsapp">+212 615 602 263</a></li>
-        </ul>
+        <a href="#" class="logo">IMMO <span>POUR VOUS</span></a>
+        <div style="color: white; font-weight: 600;">+212 615 602 263</div>
     </nav>
 
-    <a href="https://wa.me/212615602263" class="whatsapp-btn" target="_blank">
-        <span>💬</span> WhatsApp Direct
-    </a>
-
     <header>
-        <h1>L'Exception Immobilière</h1>
+        <h1>Nos Biens d'Exception</h1>
     </header>
 
-    <div class="main-wrapper">
-        
-        <div class="intro-section">
-            <div class="agent-column">
-                <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Asmaa Lahlou" class="agent-image">
-                <p class="agent-name">Asmaa Lahlou</p>
-                <span class="agent-title">Directrice Fondatrice</span>
-            </div>
-            <div class="quote-column">
-                <p class="agent-quote">
-                    "Parce que votre projet immobilier au Maroc est avant tout une histoire de vie, je mets mon expertise et ma passion à votre service pour vous dénicher l'exceptionnel."
-                </p>
-            </div>
-        </div>
-
-        <div id="biens" class="properties-grid">
+    <div class="container">
+        <div class="properties-grid">
             
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800" alt="Villa Marrakech">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600" alt="Villa">
                 <div class="card-body">
                     <span class="price">12.500.000 MAD</span>
-                    <h3>Palais de la Palmeraie</h3>
-                    <p class="details">📍 Marrakech • 🛏️ 6 Suites</p>
+                    <h3>Villa Palmeraie</h3>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800" alt="Villa Moderne Agadir">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Villa">
                 <div class="card-body">
                     <span class="price">10.900.000 MAD</span>
-                    <h3>Ocean View Agadir</h3>
-                    <p class="details">📍 Agadir • 🛏️ 5 Chambres</p>
+                    <h3>Modern Agadir</h3>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?auto=format&fit=crop&w=800" alt="Riad Historique Fès">
+                <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?auto=format&fit=crop&w=600" alt="Riad">
                 <div class="card-body">
                     <span class="price">7.500.000 MAD</span>
-                    <h3>Riad Dar El Makhzen</h3>
-                    <p class="details">📍 Fès (Médina) • 🏺 Historique</p>
+                    <h3>Riad Historique</h3>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800" alt="Penthouse Tanger">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600" alt="Penthouse">
                 <div class="card-body">
                     <span class="price">9.200.000 MAD</span>
-                    <h3>Marina Penthouse Tanger</h3>
-                    <p class="details">📍 Tanger • 🌅 Vue Mer</p>
+                    <h3>Penthouse Tanger</h3>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800" alt="Villa Casablanca Anfa">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Villa">
                 <div class="card-body">
                     <span class="price">18.000.000 MAD</span>
-                    <h3>Anfa Prestige Residence</h3>
-                    <p class="details">📍 Casablanca • 🌴 Quartier Exclusif</p>
+                    <h3>Anfa Prestige</h3>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.pexels.com/photos/1125137/pexels-photo-1125137.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Riad Marrakech">
+                <img src="https://images.pexels.com/photos/1125137/pexels-photo-1125137.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Riad">
                 <div class="card-body">
                     <span class="price">6.800.000 MAD</span>
-                    <h3>Riad Al Medina Luxury</h3>
-                    <p class="details">📍 Marrakech (Médina) • 🛏️ 7 Suites</p>
+                    <h3>Riad Médina</h3>
                 </div>
             </div>
 
         </div>
 
         <div class="contact-box" id="contact">
-            <h2>Votre rêve commence ici</h2>
-            <form action="https://formspree.io/f/VOTRE_ID" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Votre Nom Complet" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Votre Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" rows="4" placeholder="Quel type de bien recherchez-vous ?"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Débuter l'expérience</button>
+            <h2>Contactez Asmaa Lahlou</h2>
+            <form>
+                <input type="text" placeholder="Nom Complet">
+                <input type="email" placeholder="Email">
+                <textarea rows="4" placeholder="Votre message"></textarea>
+                <button type="submit" class="btn">Envoyer la demande</button>
             </form>
         </div>
-
     </div>
 
-    <footer style="background: var(--dark); color: white; padding: 60px 20px; text-align: center;">
-        <img src="logo.png" alt="Logo" style="height: 50px; margin-bottom: 20px; filter: brightness(0) invert(1);">
-        <p style="letter-spacing: 2px; font-weight: 600;">IMMO POUR VOUS | MAROC PRESTIGE</p>
-        <p style="opacity: 0.5; margin-top: 10px; font-size: 0.9rem;">© 2026 Tous droits réservés. Excellence & Confidentialité.</p>
+    <footer style="text-align: center; padding: 30px; background: #011111; color: white;">
+        © 2026 Immo Pour Vous
     </footer>
 
 </body>
