@@ -28,7 +28,7 @@
         header {
             background: linear-gradient(rgba(4, 47, 46, 0.75), rgba(4, 47, 46, 0.75)), 
                         url('https://images.unsplash.com/photo-1539667468225-bda0c11af318?auto=format&fit=crop&w=1500') center/cover;
-            height: 70vh;
+            height: 60vh;
             color: white;
             display: flex;
             align-items: center;
@@ -57,11 +57,12 @@
             transition: 0.3s;
             display: inline-block;
             text-align: center;
+            border: none;
         }
 
         .section-biens { 
             padding: 80px 20px; 
-            max-width: 1500px; /* Plus large pour accueillir de grands visuels */
+            max-width: 1500px; 
             margin: -60px auto 0; 
             background: #ffffff;
             border-radius: 30px;
@@ -84,11 +85,10 @@
             gap: 50px;
         }
 
-        /* --- VISUELS AGRANDIS --- */
         .cards-container { 
-            flex: 2.2; /* Donne plus de place aux photos */
+            flex: 2.2; 
             display: flex;
-            flex-direction: column; /* Une villa par ligne pour un effet grandiose */
+            flex-direction: column; 
             gap: 40px; 
         }
 
@@ -98,21 +98,17 @@
             overflow: hidden;
             box-shadow: 0 15px 45px rgba(0,0,0,0.1);
             border: 1px solid #f0f0f0;
-            transition: 0.4s;
         }
-
-        .card:hover { transform: scale(1.02); }
 
         .card img { 
             width: 100%; 
-            height: 550px; /* HAUTEUR AGRANDIE pour l'effet WOW */
+            height: 550px; 
             object-fit: cover; 
         }
         
-        .card-content { padding: 35px; text-align: left; }
+        .card-content { padding: 35px; }
         .price { color: var(--accent); font-weight: bold; font-size: 1.8rem; display: block; margin-bottom: 10px; }
-        .card h3 { font-size: 2rem; color: var(--primary); margin-bottom: 5px; font-family: 'Playfair Display', serif; }
-        .card p { font-size: 1.2rem; color: #666; }
+        .card h3 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
 
         /* --- PROFIL DIRECTRICE --- */
         .agent-container {
@@ -124,11 +120,10 @@
             border: 2px solid rgba(212, 175, 55, 0.2);
             position: sticky;
             top: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .agent-image {
-            width: 260px; height: 260px; /* Photo de profil aussi agrandie */
+            width: 260px; height: 260px;
             border-radius: 50%;
             object-fit: cover;
             object-position: center 20%;
@@ -137,24 +132,51 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        .agent-name { font-size: 2.2rem; color: var(--primary); font-weight: 700; margin-bottom: 5px; font-family: 'Playfair Display', serif;}
+        .agent-name { font-size: 2.2rem; color: var(--primary); font-weight: 700; font-family: 'Playfair Display', serif;}
         .agent-title { color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 20px; }
         .agent-quote { font-style: italic; font-size: 1.25rem; color: #444; margin-bottom: 30px; line-height: 1.8; }
 
-        /* --- WHATSAPP & CONTACT --- */
+        /* --- FORMULAIRE DE CONTACT --- */
+        .contact-section {
+            margin-top: 60px;
+            padding: 60px;
+            background: var(--primary);
+            border-radius: 25px;
+            color: white;
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--accent); }
+        
+        input, textarea { 
+            width: 100%; 
+            padding: 15px; 
+            border: none; 
+            border-radius: 12px; 
+            font-size: 1rem;
+            background: #ffffff;
+        }
+
+        /* --- WHATSAPP --- */
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px;
             background-color: var(--success); color: white;
             border-radius: 50px; padding: 18px 30px;
             font-weight: bold; text-decoration: none; z-index: 1000;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            font-size: 1.1rem;
         }
 
         @media (max-width: 1100px) {
             .main-content-wrapper { flex-direction: column-reverse; }
             .agent-container { width: 100%; position: static; margin-bottom: 50px; }
-            .card img { height: 400px; }
+            .contact-section { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -184,6 +206,7 @@
                         <p>Marrakech • 6 Chambres • Piscine Olympique • Jardin de 2 hectares</p>
                     </div>
                 </div>
+
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200" alt="Penthouse Casablanca">
                     <div class="card-content">
@@ -191,6 +214,25 @@
                         <h3>Ocean View Sky Penthouse</h3>
                         <p>Casablanca • 4 Suites • Terrasse panoramique • Service Conciergerie</p>
                     </div>
+                </div>
+
+                <div class="contact-section" id="contact">
+                    <h2>Une question ? Contactez-moi</h2>
+                    <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+                        <div class="form-group">
+                            <label>Nom complet</label>
+                            <input type="text" name="name" placeholder="Ex: Ahmed Alami" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="votre@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Votre projet</label>
+                            <textarea name="message" rows="4" placeholder="Décrivez le bien de vos rêves..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Envoyer ma demande</button>
+                    </form>
                 </div>
             </div>
 
@@ -206,7 +248,7 @@
         </div>
     </div>
 
-    <footer style="background: #011111; color: white; padding: 60px 20px; text-align: center; margin-top: 50px;">
+    <footer style="background: #011111; color: white; padding: 40px; text-align: center; margin-top: 50px;">
         <p><strong>Immo Pour Vous Maroc Prestige</strong></p>
         <p>© 2026 Tous droits réservés.</p>
     </footer>
