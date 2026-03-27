@@ -5,89 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
     <style>
-  :root {
-    --vert-emeraude: #064e3b;
-    --blanc-pur: #ffffff;
+  <style>
+  /* --- BASE & TYPO --- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { 
+    font-family: 'Playfair Display', serif, Arial; /* Un style plus élégant */
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
   }
 
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.8;
-  }
-
-  /* SECTION HERO (Le haut de la page) */
-  header {
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  h2 {
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
-    color: white;
-    padding: 0 20px;
-  }
-
-  h1 {
-    font-size: 4rem !important; /* TITRE GÉANT */
-    font-weight: 900;
-    margin-bottom: 10px;
+    font-size: 3rem !important;
+    margin: 80px 0 40px;
+    color: #064e3b;
     text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
-  header p {
-    font-size: 1.5rem !important; /* SOUS-TITRE LISIBLE */
-    max-width: 800px;
-  }
-
-  /* SECTION BIENS (Les cartes) */
+  /* --- CARTES BIENS : CENTRÉES & PROPRES --- */
   .property-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    padding: 80px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 100px;
   }
 
   .property-card {
-    width: 350px;
-    border-radius: 15px;
+    background: #fff;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    background: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    text-align: center; /* CENTRE TOUT LE TEXTE */
   }
 
-  .property-card img {
+  .property-image img {
     width: 100%;
-    height: 250px; /* ON LIMITE LA PHOTO ICI */
+    height: 400px; /* Taille maîtrisée */
     object-fit: cover;
   }
 
-  .property-card h3 {
-    font-size: 1.8rem; /* TITRE VILLA BIEN GROS */
-    padding: 15px 20px 5px;
-    margin: 0;
-    color: var(--vert-emeraude);
+  .property-content {
+    padding: 40px;
   }
 
-  .property-card p {
-    font-size: 1.1rem;
-    padding: 0 20px 20px;
-    color: #555;
+  .property-content h3 {
+    font-size: 2.2rem !important;
+    margin-bottom: 15px;
+    color: #064e3b;
   }
 
-  /* BOUTON */
-  .btn {
-    display: inline-block;
-    padding: 15px 35px;
-    background: var(--vert-emeraude);
+  .property-content p {
+    font-size: 1.3rem !important;
+    color: #64748b;
+    margin-bottom: 25px;
+  }
+
+  /* --- FORMULAIRE : PLUS DE VALEUR & IMPACT --- */
+  .contact-section {
+    background: #064e3b; /* Fond vert émeraude pour trancher */
+    padding: 100px 20px;
     color: white;
-    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-section h2 { color: white; margin-top: 0; }
+
+  form {
+    background: white;
+    padding: 50px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 700px; /* Plus large */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  form label {
+    color: #064e3b;
     font-weight: bold;
-    border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  form input, form textarea {
+    width: 100%;
+    padding: 18px; /* Plus grand pour plus de confort */
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  form input:focus, form textarea:focus {
+    border-color: #064e3b;
+    box-shadow: 0 0 10px rgba(6, 78, 59, 0.2);
+  }
+
+  form button {
+    background: #064e3b;
+    color: white;
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  form button:hover {
+    background: #059669;
+    transform: translateY(-3px);
+  }
+
+  /* Responsive Mobile */
+  @media (max-width: 600px) {
+    h1 { font-size: 2.5rem !important; }
+    form { padding: 30px 20px; }
   }
 </style>
     <style>
