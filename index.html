@@ -53,7 +53,7 @@
         /* --- SECTION ASMAA LAHLOU (DIRECTRICE) --- */
         .agent-section {
             background: var(--white);
-            margin-top: -60px; /* Chevauche le Hero pour le style */
+            margin-top: -60px;
             padding: 40px;
             border-radius: 20px;
             display: flex;
@@ -69,7 +69,6 @@
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid var(--light);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .agent-info h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); margin-bottom: 5px; }
         .agent-title { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; display: block; margin-bottom: 15px; }
@@ -113,4 +112,109 @@
         .btn { background: var(--accent); color: white; width: 100%; padding: 18px; border: none; border-radius: 10px; font-weight: 800; text-transform: uppercase; cursor: pointer; font-size: 1.1rem; }
 
         /* --- WHATSAPP --- */
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D36
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; z-index: 100; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .properties-grid { grid-template-columns: repeat(2, 1fr); }
+            .agent-section { flex-direction: column; text-align: center; }
+            .agent-quote { border-left: none; border-top: 4px solid var(--accent); padding: 20px 0 0 0; }
+        }
+        @media (max-width: 700px) {
+            .properties-grid { grid-template-columns: 1fr; }
+            nav { padding: 15px; justify-content: center; }
+            .nav-contact { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">IMMO <span>POUR VOUS</span></a>
+        <a href="https://wa.me/212615602263" class="nav-contact">+212 615 602 263</a>
+    </nav>
+
+    <header>
+        <h1>L'Immobilier d'Exception</h1>
+    </header>
+
+    <div class="container">
+        
+        <div class="agent-section">
+            <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Asmaa Lahlou" class="agent-photo">
+            <div class="agent-info">
+                <h2>Asmaa Lahlou</h2>
+                <span class="agent-title">Directrice Fondatrice</span>
+                <p class="agent-quote">
+                    "Parce que votre projet immobilier au Maroc est avant tout une histoire de vie, je mets mon expertise et ma passion à votre service pour vous dénicher l'exceptionnel."
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Nos Biens de Prestige</h2>
+
+        <div class="properties-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600" alt="Villa">
+                <div class="card-body">
+                    <span class="price">12.500.000 MAD</span>
+                    <h3>Palais Palmeraie</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Villa">
+                <div class="card-body">
+                    <span class="price">10.900.000 MAD</span>
+                    <h3>Villa Agadir Bay</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?auto=format&fit=crop&w=600" alt="Riad">
+                <div class="card-body">
+                    <span class="price">7.500.000 MAD</span>
+                    <h3>Riad Dar Fès</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600" alt="Penthouse">
+                <div class="card-body">
+                    <span class="price">9.200.000 MAD</span>
+                    <h3>Marina Penthouse</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Villa">
+                <div class="card-body">
+                    <span class="price">18.000.000 MAD</span>
+                    <h3>Anfa Prestige Casa</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/1125137/pexels-photo-1125137.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Riad">
+                <div class="card-body">
+                    <span class="price">6.800.000 MAD</span>
+                    <h3>Riad Marrakech Médina</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 20px;">Contactez-nous</h2>
+            <form>
+                <input type="text" placeholder="Votre Nom Complet" required>
+                <input type="email" placeholder="Votre Email" required>
+                <textarea rows="4" placeholder="Votre projet au Maroc..."></textarea>
+                <button type="submit" class="btn">Envoyer la demande</button>
+            </form>
+        </div>
+
+    </div>
+
+    <a href="https://wa.me/212615602263" class="wa-float" target="_blank">💬 WhatsApp Direct</a>
+
+    <footer style="background: #011111; color: white; text-align: center; padding: 40px;">
+        <p>© 2026 Immo Pour Vous | Maroc Prestige</p>
+    </footer>
+
+</body>
+</html>
