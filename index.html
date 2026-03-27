@@ -4,267 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
-    
- 
- <style>
-  /* --- BASE & TYPOGRAPHIE --- */
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { 
-    font-family: 'Segoe UI', Roboto, sans-serif; 
-    background-color: #ffffff; 
-    color: #1a1a1a; 
-  }
-
-  /* TITRE PRINCIPAL (HERO) - IMPACT MAXIMAL */
-  h1 {
-    font-size: clamp(3rem, 10vw, 5.5rem) !important;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 20px;
-    letter-spacing: -2px;
-  }
-
-  h2 {
-    text-align: center;
-    font-size: 3rem !important;
-    margin: 80px 0 50px;
-    color: #064e3b;
-  }
-
-  /* --- ALIGNEMENT DES 3 PHOTOS SUR UNE LIGNE --- */
-  .property-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 0 40px 100px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .property-card {
-    flex: 1; /* Force les 3 cartes à avoir la même largeur */
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-    text-align: center;
-  }
-
-  .property-card:hover {
-    transform: translateY(-10px);
-  }
-
-  .property-image img {
-    width: 100%;
-    height: 250px; /* Hauteur réduite pour tenir sur une ligne */
-    object-fit: cover;
-  }
-
-  .property-content {
-    padding: 25px 15px;
-  }
-
-  .property-content h3 {
-    font-size: 1.6rem !important;
-    color: #064e3b;
-    margin-bottom: 10px;
-  }
-
-  .property-content p {
-    font-size: 1.1rem !important;
-    color: #666;
-  }
-
-  /* --- FORMULAIRE : DESIGN LUXE & LARGE --- */
-  .contact-section {
-    background: #064e3b; /* Fond vert émeraude profond */
-    padding: 120px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-section h2 { 
-    color: #ffffff !important; 
-    margin-top: 0;
-    font-size: 3.5rem !important;
-  }
-
-  form {
-    background: #ffffff;
-    width: 100%;
-    max-width: 900px; /* Formulaire très large */
-    padding: 80px;
-    border-radius: 40px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
-    position: relative;
-  }
-
-  /* Effet de bordure décorative sur le formulaire */
-  form::before {
-    content: "";
-    position: absolute;
-    top: 15px; left: 15px; right: 15px; bottom: 15px;
-    border: 1px solid #e5e7eb;
-    border-radius: 30px;
-    pointer-events: none;
-  }
-
-  .form-group {
-    margin-bottom: 25px;
-    position: relative;
-    z-index: 1;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 20px;
-    border: 2px solid #f3f4f6;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    background: #f9fafb;
-    transition: 0.3s;
-  }
-
-  input:focus, textarea:focus {
-    border-color: #064e3b;
-    background: #fff;
-    outline: none;
-  }
-
-  button {
-    width: 100%;
-    padding: 25px;
-    background: #064e3b;
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.4rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: 0.3s;
-  }
-
-  button:hover {
-    background: #043226;
-    letter-spacing: 3px;
-  }
-
-  /* RESPONSIVE : Aligne les photos l'une sous l'autre sur mobile uniquement */
-  @media (max-width: 900px) {
-    .property-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-    .property-card { width: 100%; max-width: 450px; }
-    form { padding: 40px 20px; }
-  }
-</style>
-   
-  body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f4f7f6;
-  }
-
-  /* Titre de section BIEN ALIGNÉ au centre */
-  h2 {
-    text-align: center;
-    font-size: 2.5rem !important;
-    margin: 60px 0 40px;
-    color: #064e3b;
-    font-weight: 800;
-  }
-
-  /* LA GRILLE : Aligne les cartes proprement */
-  .property-grid {
-    display: flex;
-    flex-direction: column; /* Aligne les blocs les uns sous les autres */
-    align-items: center;    /* Centre tout horizontalement */
-    gap: 40px;
-    padding: 0 20px 80px;
-  }
-
-  /* LA CARTE : Fixe la taille pour que la photo ne déborde pas */
-  .property-card {
-    display: flex;          /* Aligne Photo et Texte côte à côte sur PC */
-    flex-direction: row;    
-    background: #fff;
-    width: 100%;
-    max-width: 900px;       /* Largeur max pour que ce soit élégant */
-    height: 350px;          /* HAUTEUR FIXE POUR DOMPTER LA PHOTO */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  }
-
-  /* LA PHOTO : Elle ne peut plus dépasser ! */
-  .property-image {
-    width: 45%;             /* La photo prend 45% de la carte */
-    height: 100%;
-  }
-
-  .property-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;      /* La photo s'adapte sans se déformer */
-  }
-
-  /* LE TEXTE : Aligné à l'intérieur */
-  .property-content {
-    width: 55%;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centre le texte verticalement */
-  }
-
-  .property-content h3 {
-    font-size: 2rem !important; /* Écriture grande */
-    margin-bottom: 10px;
-    color: #111;
-  }
-
-  .property-content p {
-    font-size: 1.2rem !important;
-    color: #666;
-    margin-bottom: 20px;
-  }
-
-  /* Responsive : Pour les téléphones */
-  @media (max-width: 768px) {
-    .property-card {
-      flex-direction: column; /* Photo en haut, texte en bas sur mobile */
-      height: auto;
-    }
-    .property-image, .property-content {
-      width: 100%;
-    }
-    .property-image { height: 250px; }
-  }
-</style>
-       <style>
+    <style>
+        /* --- VARIABLES & BASE --- */
         :root {
-            --primary: #042f2e; /* Vert Émeraude Profond (Très élégant) */
-            --accent: #d4af37;  /* Or Véritable (Plus brillant) */
-            --light: #fdfbf7;   /* Blanc cassé / Sable (Plus doux que le gris) */
-            --success: #25D366; /* Vert WhatsApp (On garde celui-là) */
+            --primary: #042f2e; 
+            --accent: #d4af37;  
+            --light: #fdfbf7;   
+            --success: #25D366; 
         }
 
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: #333; scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background: var(--light); 
+            color: #333; 
+            scroll-behavior: smooth; 
+        }
 
-        /* Header avec filtre élégant */
-        header {
-           /* Header avec filtre Vert Émeraude Profond */
+        /* --- HEADER HERO --- */
         header {
             background: linear-gradient(rgba(4, 47, 46, 0.7), rgba(4, 47, 46, 0.7)), 
                         url('https://images.unsplash.com/photo-1539667468225-bda0c11af318?auto=format&fit=crop&w=1500') center/cover;
-            height: 80vh;
+            height: 85vh;
             color: white;
             display: flex;
             align-items: center;
@@ -273,76 +35,111 @@
             padding: 0 20px;
         }
 
-        header h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        header p { font-size: 1.4rem; margin-bottom: 30px; opacity: 0.9; }
+        header h1 { 
+            font-size: clamp(3rem, 8vw, 5rem); 
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5); 
+        }
 
-        /* Bouton Principal */
+        header p { font-size: 1.5rem; margin-bottom: 40px; opacity: 0.9; }
+
+        /* --- BOUTONS --- */
         .btn {
             background: var(--accent);
             color: white;
-            padding: 15px 35px;
+            padding: 18px 40px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: 0.3s;
             display: inline-block;
             box-shadow: 0 4px 15px rgba(184, 146, 48, 0.3);
         }
-
         .btn:hover { background: #967520; transform: translateY(-3px); }
 
-        /* WhatsApp Flottant */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--success);
-            color: white;
-            border-radius: 50px;
-            padding: 15px 25px;
-            font-weight: bold;
-            text-decoration: none;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s;
+        /* --- SECTION NOS BIENS (3 SUR UNE LIGNE) --- */
+        .section { padding: 100px 20px; max-width: 1400px; margin: auto; text-align: center; }
+        .section h2 { font-size: 3rem; margin-bottom: 50px; color: var(--primary); font-weight: 800; }
+
+        .cards-container { 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: center; 
+            gap: 25px; 
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
-        /* Grille de Cartes */
-        .section { padding: 80px 20px; max-width: 1200px; margin: auto; text-align: center; }
-        .section h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--primary); }
-
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
         .card {
+            flex: 1;
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
             transition: 0.3s;
+            text-align: center;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-content { padding: 20px; }
-        .card h3 { margin: 0; color: var(--primary); }
-        .price { color: var(--accent); font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
 
-        /* Formulaire */
-        .contact-container { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; margin: auto; }
-        .form-group { text-align: left; margin-bottom: 20px; }
-        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 280px; object-fit: cover; }
+        
+        .card-content { padding: 30px 20px; }
+        .card h3 { font-size: 1.6rem; color: var(--primary); margin-bottom: 10px; }
+        .price { color: var(--accent); font-weight: bold; font-size: 1.3rem; margin-bottom: 10px; }
 
-        footer { background: var(--primary); color: white; padding: 40px 20px; text-align: center; margin-top: 50px; }
+        /* --- FORMULAIRE LARGE ET LUXE --- */
+        .contact-wrapper {
+            background: var(--primary);
+            padding: 120px 20px;
+            margin-top: 50px;
+        }
 
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .whatsapp-float { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 14px; }
+        .contact-wrapper h2 { color: white; margin-bottom: 60px; }
+
+        .contact-container { 
+            background: white; 
+            padding: 70px; 
+            border-radius: 40px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2); 
+            max-width: 900px; 
+            margin: auto; 
+        }
+
+        .form-group { text-align: left; margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 10px; font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+        
+        input, textarea { 
+            width: 100%; 
+            padding: 18px; 
+            border: 2px solid #eee; 
+            border-radius: 15px; 
+            font-size: 1.1rem;
+            background: #fdfdfd;
+        }
+
+        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+
+        /* --- WHATSAPP & FOOTER --- */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: var(--success); color: white;
+            border-radius: 50px; padding: 15px 25px;
+            font-weight: bold; text-decoration: none; z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        footer { background: #021a1a; color: white; padding: 50px 20px; text-align: center; }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 992px) {
+            .cards-container { flex-direction: column; align-items: center; }
+            .card { width: 100%; max-width: 450px; }
+            .contact-container { padding: 40px 25px; }
+            header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -362,7 +159,7 @@
 
     <section class="section">
         <h2>Nos Biens d'Exception</h2>
-        <div class="cards">
+        <div class="cards-container">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Villa">
                 <div class="card-content">
@@ -390,31 +187,33 @@
         </div>
     </section>
 
-    <section id="contact" class="section" style="background: #e9ecef;">
-        <h2>Une question ? Contactez-nous</h2>
-        <div class="contact-container">
-            <form action="https://formspree.io/f/VOTRE_ID" method="POST">
-                <div class="form-group">
-                    <label>Nom complet</label>
-                    <input type="text" name="name" placeholder="Ex: Ahmed Alami" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" placeholder="votre@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea name="message" rows="5" placeholder="Quel bien vous intéresse ?" required></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Envoyer la demande</button>
-            </form>
-        </div>
-    </section>
+    <div id="contact" class="contact-wrapper">
+        <section class="section" style="padding: 0;">
+            <h2>Une question ? Contactez-nous</h2>
+            <div class="contact-container">
+                <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" name="name" placeholder="Ex: Ahmed Alami" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="5" placeholder="Quel bien vous intéresse ?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; border-radius: 15px;">Envoyer la demande</button>
+                </form>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p><strong>Immo Pour Vous Maroc</strong></p>
-        <p>Email: mediaimmo@agence.ma | Tél: +212 615 602 263</p>
-        <p>© 2026 Tous droits réservés.</p>
+        <p style="margin: 10px 0; opacity: 0.8;">Email: mediaimmo@agence.ma | Tél: +212 615 602 263</p>
+        <p style="opacity: 0.5; font-size: 0.9rem;">© 2026 Tous droits réservés.</p>
     </footer>
 
 </body>
