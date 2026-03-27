@@ -4,119 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immo Pour Vous | Excellence Immobilière au Maroc</title>
-    <style>
-  <style>
+    
  <style>
+ <style>
+  /* --- BASE & TYPOGRAPHIE --- */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { 
-    font-family: 'Helvetica', Arial, sans-serif; 
-    background-color: #f9f9f9; 
-    color: #222; 
-    line-height: 1.6;
+    font-family: 'Segoe UI', Roboto, sans-serif; 
+    background-color: #ffffff; 
+    color: #1a1a1a; 
   }
 
-  /* --- 1. LES PHOTOS (ENFIN DOMPTÉES) --- */
-  .property-card {
-    background: white;
-    width: 90%;
-    max-width: 1000px; /* Plus large pour le texte */
-    margin: 40px auto;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  /* TITRE PRINCIPAL (HERO) - IMPACT MAXIMAL */
+  h1 {
+    font-size: clamp(3rem, 10vw, 5.5rem) !important;
+    font-weight: 900;
+    text-transform: uppercase;
     text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 3rem !important;
+    margin: 80px 0 50px;
+    color: #064e3b;
+  }
+
+  /* --- ALIGNEMENT DES 3 PHOTOS SUR UNE LIGNE --- */
+  .property-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 40px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .property-card {
+    flex: 1; /* Force les 3 cartes à avoir la même largeur */
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+
+  .property-card:hover {
+    transform: translateY(-10px);
   }
 
   .property-image img {
     width: 100%;
-    height: 300px !important; /* HAUTEUR LIMITÉE : la photo ne mangera plus l'écran */
+    height: 250px; /* Hauteur réduite pour tenir sur une ligne */
     object-fit: cover;
-    border-bottom: 4px solid #064e3b;
   }
 
   .property-content {
-    padding: 50px 30px; /* Plus d'espace pour le texte */
+    padding: 25px 15px;
   }
 
   .property-content h3 {
-    font-size: 2.5rem !important; /* TITRE BIEN GRAND */
+    font-size: 1.6rem !important;
     color: #064e3b;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .property-content p {
-    font-size: 1.4rem !important; /* TEXTE LISIBLE */
-    color: #444;
+    font-size: 1.1rem !important;
+    color: #666;
   }
 
-  /* --- 2. LE FORMULAIRE (IMPOSANT ET VALORISÉ) --- */
+  /* --- FORMULAIRE : DESIGN LUXE & LARGE --- */
   .contact-section {
-    padding: 100px 0;
-    background-color: #f0f4f2;
+    background: #064e3b; /* Fond vert émeraude profond */
+    padding: 120px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .contact-section h2 {
-    font-size: 3rem !important;
-    margin-bottom: 50px;
-    color: #064e3b;
-    text-align: center;
+  .contact-section h2 { 
+    color: #ffffff !important; 
+    margin-top: 0;
+    font-size: 3.5rem !important;
   }
 
   form {
     background: #ffffff;
-    width: 95%; 
-    max-width: 900px; /* FORMULAIRE TRÈS LARGE */
-    padding: 70px;    /* BEAUCOUP D'ESPACE INTERNE */
+    width: 100%;
+    max-width: 900px; /* Formulaire très large */
+    padding: 80px;
+    border-radius: 40px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  /* Effet de bordure décorative sur le formulaire */
+  form::before {
+    content: "";
+    position: absolute;
+    top: 15px; left: 15px; right: 15px; bottom: 15px;
+    border: 1px solid #e5e7eb;
     border-radius: 30px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-    border: 1px solid #e0e0e0;
+    pointer-events: none;
   }
 
-  form label {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-    color: #064e3b;
+  .form-group {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
   }
 
-  form input, form textarea {
+  input, textarea {
     width: 100%;
-    padding: 22px; /* CHAMPS TRÈS GRANDS */
+    padding: 20px;
+    border: 2px solid #f3f4f6;
+    border-radius: 15px;
     font-size: 1.2rem;
-    border: 2px solid #ddd;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    background: #fdfdfd;
-  }
-
-  form button {
-    width: 100%;
-    padding: 25px;
-    background: #064e3b;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 900;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    text-transform: uppercase;
+    background: #f9fafb;
     transition: 0.3s;
   }
 
-  form button:hover {
-    background: #043a2c;
-    transform: scale(1.02);
+  input:focus, textarea:focus {
+    border-color: #064e3b;
+    background: #fff;
+    outline: none;
   }
 
-  /* Responsive pour mobile */
-  @media (max-width: 768px) {
+  button {
+    width: 100%;
+    padding: 25px;
+    background: #064e3b;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #043226;
+    letter-spacing: 3px;
+  }
+
+  /* RESPONSIVE : Aligne les photos l'une sous l'autre sur mobile uniquement */
+  @media (max-width: 900px) {
+    .property-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    .property-card { width: 100%; max-width: 450px; }
     form { padding: 40px 20px; }
-    .property-image img { height: 200px !important; }
-    .property-content h3 { font-size: 1.8rem !important; }
   }
 </style>
     <style>
