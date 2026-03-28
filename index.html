@@ -3,196 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMMO POUR VOUS | Excellence & Humanisme au Maroc</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-
+    <title>IMMO POUR VOUS | Haute Immobilier Maroc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #042f2e; /* Vert Émeraude Profond */
-            --accent: #d4af37;  /* Or Brillant */
+            --emerald: #042f2e;
+            --gold: #d4af37;
             --white: #ffffff;
-            --text-light: #f1f5f9;
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
+            background-color: var(--emerald); 
+            color: var(--white); 
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--primary); /* FOND UNI VERT ÉMERAUDE */
-            color: var(--white);
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            line-height: 1.8;
+            overflow-x: hidden;
         }
 
-        /* --- HERO SECTION --- */
-        header {
+        /* --- HEADER & LOGO GÉANT --- */
+        .hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 60px 20px;
             text-align: center;
-            padding: 80px 20px;
+            background: radial-gradient(circle at center, #064e4b 0%, var(--emerald) 100%);
         }
 
-        /* LOGO GÉANT AVEC PHOTO DIRECTRICE */
-        .luxury-logo-container {
-            width: 550px;
-            height: 550px;
-            border: 4px solid var(--accent);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            overflow: hidden; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 50px;
+        .main-logo-frame {
+            width: 500px;
+            height: 500px;
+            border: 3px solid var(--gold);
+            padding: 15px;
+            position: relative;
+            margin-bottom: 40px;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
         }
 
-        .luxury-logo-image {
+        .main-logo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        /* --- TEXTE HUMANISTE DE LA DIRECTRICE --- */
-        .directrice-manifesto {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .manifesto-title {
+        .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--accent);
-            letter-spacing: 5px;
+            font-size: 4rem;
+            letter-spacing: 12px;
             text-transform: uppercase;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* --- MANIFESTE HUMANISTE --- */
+        .manifesto-section {
+            max-width: 900px;
+            margin: 0 auto 100px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .manifesto-tag {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 30px;
         }
 
         .manifesto-text {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
             font-style: italic;
-            line-height: 1.4;
-            margin-bottom: 30px;
-            font-weight: 400;
+            margin-bottom: 40px;
+            color: #e2e8f0;
         }
 
-        .manifesto-description {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            color: var(--text-light);
-            font-weight: 300;
-        }
-
-        /* SLOGAN IMPACTANT */
-        .slogan-box {
+        .slogan-impact {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 20px 0;
             display: inline-block;
-            padding: 20px 40px;
-            border-top: 1px solid var(--accent);
-            border-bottom: 1px solid var(--accent);
         }
 
-        .slogan-text {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--accent);
-            text-transform: uppercase;
-        }
+        /* --- CATALOGUE DE PRESTIGE --- */
+        .catalogue { padding: 100px 20px; max-width: 1400px; margin: 0 auto; }
+        .section-label { text-align: center; font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 80px; }
 
-        /* --- CATALOGUE --- */
-        .catalogue { padding: 100px 20px; text-align: center; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent); margin-bottom: 60px; }
-
-        .properties-grid {
+        .property-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
         }
 
-        .property-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding-bottom: 30px;
+        .property-item {
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .property-image-wrapper {
+            height: 500px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 25px;
+        }
+
+        .property-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s;
+        }
+
+        .property-item:hover .property-image-wrapper img { transform: scale(1.1); }
+
+        .property-info h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px; }
+        .property-meta { color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; }
+        .property-price { display: block; font-size: 1.5rem; font-weight: 600; margin-top: 15px; border-left: 3px solid var(--gold); padding-left: 15px; }
+
+        /* --- TÉMOIGNAGES RAFFINÉS --- */
+        .testimonials {
+            padding: 120px 20px;
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        .testimonial-card {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 60px;
+            border: 1px solid var(--gold);
+            background: var(--glass);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 8rem;
+            color: var(--gold);
+            font-family: 'Playfair Display';
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+        }
+
+        .testimonial-author {
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- FOOTER & CONTACT --- */
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .wa-btn {
+            background-color: var(--gold);
+            color: var(--emerald);
+            padding: 20px 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: inline-block;
+            margin-top: 40px;
             transition: 0.3s;
         }
+        .wa-btn:hover { background-color: var(--white); }
 
-        .property-card:hover { border-color: var(--accent); transform: translateY(-10px); }
-        .property-image { width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px; }
-        .property-price { color: var(--accent); font-weight: 700; font-size: 1.3rem; display: block; margin-top: 15px; }
-
-        footer {
-            padding: 60px 20px;
-            text-align: center;
-            background-color: #010a0a;
-            color: #666;
-            font-size: 0.8rem;
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .luxury-logo-container { width: 300px; height: 300px; }
-            .manifesto-text { font-size: 1.6rem; }
-            .slogan-text { font-size: 1rem; }
+            .main-logo-frame { width: 300px; height: 300px; }
+            .hero-title { font-size: 2.2rem; }
+            .property-grid { grid-template-columns: 1fr; }
+            .testimonial-card { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="luxury-logo-container">
-            <img src="https://i.ibb.co/vzNf5D8/logo-immo-prestige-asmaa.jpg" alt="Asmaa Lahlou - Immo Pour Vous" class="luxury-logo-image">
+    <header class="hero">
+        <div class="main-logo-frame">
+            <img src="https://images.pexels.com/photos/7641881/pexels-photo-7641881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Asmaa Lahlou - Immo Pour Vous">
         </div>
-
-        <div class="directrice-manifesto">
-            <p class="manifesto-title">Le mot de la Directrice</p>
-            <h2 class="manifesto-text">
-                "Trouver un toit est un besoin, trouver sa place est une quête."
-            </h2>
-            <p class="manifesto-description">
-                Dans un monde qui s'accélère, nous oublions souvent qu'une maison n'est pas qu'une transaction. C'est le théâtre de vos futurs souvenirs, le refuge de votre sérénité et le socle de votre famille. Mon engagement est de vous accompagner avec l'âme et le cœur.
+        <h1 class="hero-title">Immo Pour Vous</h1>
+        
+        <div class="manifesto-section">
+            <span class="manifesto-tag">Vision Humaniste</span>
+            <p class="manifesto-text">
+                "Une propriété n'est pas un assemblage de pierres et de mortier, c'est le berceau de votre héritage. Mon métier n'est pas de vendre des mètres carrés, mais de protéger votre sérénité en vous trouvant la place que vous méritez dans ce monde."
             </p>
-            
-            <div class="slogan-box">
-                <p class="slogan-text">
-                    Parce qu'au-delà des murs, c'est votre histoire que nous bâtissons.
-                </p>
+            <div class="slogan-impact">
+                VOTRE HISTOIRE MÉRITE UN ÉCRIN À SA MESURE.
             </div>
         </div>
     </header>
 
     <section class="catalogue">
-        <h2 class="section-title">Notre Collection</h2>
-        <div class="properties-grid">
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800" class="property-image">
-                <h3 style="font-family: 'Playfair Display'">Palais Al-Fassia</h3>
-                <p style="letter-spacing: 2px; font-size: 0.8rem;">MARRAKECH</p>
-                <span class="property-price">12 500 000 MAD</span>
+        <h2 class="section-label">La Collection</h2>
+        <div class="property-grid">
+            
+            <div class="property-item">
+                <div class="property-image-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Marrakech_-_Palmeraie.jpg/1280px-Marrakech_-_Palmeraie.jpg" alt="Villa Marrakech">
+                </div>
+                <div class="property-info">
+                    <span class="property-meta">Marrakech • Palmeraie</span>
+                    <h3>Le Palais des Ambassadeurs</h3>
+                    <span class="property-price">12.500.000 MAD</span>
+                </div>
             </div>
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1549410978-0051e9e04870?auto=format&fit=crop&w=800" class="property-image">
-                <h3 style="font-family: 'Playfair Display'">Villa Ocean Drive</h3>
-                <p style="letter-spacing: 2px; font-size: 0.8rem;">CASABLANCA</p>
-                <span class="property-price">18 900 000 MAD</span>
+
+            <div class="property-item">
+                <div class="property-image-wrapper">
+                    <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Villa Casablanca">
+                </div>
+                <div class="property-info">
+                    <span class="property-meta">Casablanca • Anfa</span>
+                    <h3>Villa Horizon Azur</h3>
+                    <span class="property-price">18.900.000 MAD</span>
+                </div>
             </div>
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?auto=format&fit=crop&w=800" class="property-image">
-                <h3 style="font-family: 'Playfair Display'">Riad Dar El-Bacha</h3>
-                <p style="letter-spacing: 2px; font-size: 0.8rem;">FÈS</p>
-                <span class="property-price">7 500 000 MAD</span>
+
+            <div class="property-item">
+                <div class="property-image-wrapper">
+                    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Résidence Rabat">
+                </div>
+                <div class="property-info">
+                    <span class="property-meta">Rabat • Ambassadeurs</span>
+                    <h3>Résidence de l'Émeraude</h3>
+                    <span class="property-price">11.200.000 MAD</span>
+                </div>
             </div>
+
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-label" style="font-size: 2.5rem;">Expériences Clients</h2>
+        
+        <div class="testimonial-card">
+            <p class="testimonial-text">
+                "Nous cherchions bien plus qu'une villa à Marrakech ; nous cherchions un refuge pour notre famille après dix ans d'expatriation. Asmaa n'a pas seulement trouvé une maison, elle a compris nos silences et nos doutes. Sa discrétion et sa rigueur juridique nous ont permis d'acquérir le Palais Al-Fassia en toute sérénité. Elle traite chaque transaction comme si c'était sa propre demeure."
+            </p>
+            <p class="testimonial-author">— M. & Mme Benjelloun, Groupe Industriel</p>
+        </div>
+
+        <div class="testimonial-card">
+            <p class="testimonial-text">
+                "Dans l'immobilier de luxe au Maroc, on rencontre beaucoup de vendeurs, mais peu d'experts. Asmaa Lahlou appartient à cette rare catégorie qui place l'éthique avant le profit. Elle a su négocier notre propriété à Casablanca avec une élégance et une fermeté exemplaires. Une véritable partenaire de confiance pour tout investisseur exigeant."
+            </p>
+            <p class="testimonial-author">— Dr. Alami, Fondateur de Clinique</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 **Immo Pour Vous** | Excellence, Humanisme & Discrétion au Maroc</p>
-        <p style="margin-top: 10px; color: var(--accent);">Directrice Fondatrice : Asmaa Lahlou</p>
+        <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; color: var(--gold);">Confiez-nous votre projet</h2>
+        <p style="margin-top: 20px;">L'excellence n'attend pas.</p>
+        <a href="https://wa.me/212615602263" class="wa-btn">Prendre rendez-vous avec la Directrice</a>
+        <p style="margin-top: 60px; opacity: 0.5;">© 2026 IMMO POUR VOUS | ASMAA LAHLOU | CASABLANCA - MARRAKECH - RABAT</p>
     </footer>
 
 </body>
